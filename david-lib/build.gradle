@@ -1,0 +1,165 @@
+/*
+File
+https://github.com/virtualdogbert/GroovyConfigWriter/blob/master/build.gradle
+has been used as basis for this file.
+ */
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'no.nils:wsdl2java:0.10'
+    }
+}
+plugins {
+    id "groovy"
+    id "maven-publish"
+    id "idea"
+    id "jacoco"
+    id "io.spring.dependency-management" version "1.0.6.RELEASE"
+    id "enterprise.groovy.plugin" version "1.0.1"
+}
+
+apply plugin: 'com.jfrog.bintray'
+apply plugin: "com.jfrog.artifactory"
+apply plugin: 'no.nils.wsdl2java'
+
+
+
+ext['groovy.version'] = '2.5.4'
+ext['springBootVersion'] = '2.1.1.RELEASE'
+
+sourceCompatibility = 1.8
+group = "io.i-t"
+version = "1.0.0-SNAPSHOT"
+description = "Polyglot Chat Bot"
+
+
+repositories {
+    jcenter()
+    maven {
+        url  "https://dl.bintray.com/infinite-technology/io.i-t"
+    }
+    mavenLocal()
+}
+
+sourceSets {
+    main.groovy.srcDirs = ["src/main/groovy"]
+    test.groovy.srcDirs = ["src/test/groovy"]
+}
+
+dependencies {
+    compile "io.i-t:bobbin:2.0.13"
+    compile 'io.i-t:blackbox:1.0.20'
+    compile 'io.i-t:pigeon-lib:1.0.0-RC18S8'
+    compile 'io.i-t:ascend-lib:0.1.5'
+    compile "io.i-t:orbit-lib:0.0.5"
+    compile group: 'org.telegram', name: 'telegrambots', version: '4.4.0.1'
+    compile group: 'org.telegram', name: 'telegrambots-abilities', version: '4.4.0.1'
+    //compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.9.7'
+    compile 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.9.8'
+    compile 'com.h2database:h2:1.4.197'
+    compile group: 'org.slf4j', name: 'log4j-over-slf4j', version: '1.7.28'
+    //compile 'mysql:mysql-connector-java'
+    testCompile group: 'org.testng', name: 'testng', version: '6.14.3'
+}
+
+task sourceJar(type: Jar) {
+    from sourceSets.main.allSource
+    classifier "sources"
+}
+
+ext {
+    theTitle = "Polyglot Chat Bot"
+    titleForDocumentation = archivesBaseName + " " + version
+    packageTitle = group
+    description = "Polyglot Chat Bot"
+}
+
+publishing {
+    publications {
+        groovyMaven(MavenPublication) {
+            from components.java
+            artifact(sourceJar) {
+                classifier "sources"
+            }
+        }
+    }
+}
+
+task jarSrc(type: Jar, dependsOn: classes) {
+    classifier = "sources"
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives(jarSrc)
+}
+
+bintray {
+    user = System.getenv("bintrayuser")
+    key = System.getenv("bintraypassword")
+    System.out.println(user)
+    System.out.println(key)
+    publications = ["groovyMaven"]
+    def projectName = project.name
+    def projectDescription = project.description
+    pkg {
+        userOrg = "infinite-technology"
+        repo = "io.i-t"
+        name = "david-lib"
+        desc = "Polyglot Chat Bot"
+        issueTrackerUrl = "https://github.com/INFINITE-TECHNOLOGY/DAVID/issues"
+        vcsUrl = "https://github.com/INFINITE-TECHNOLOGY/DAVID.git"
+        websiteUrl = "https://i-t.io/David/"
+        licenses = ["Apache-2.0"]
+    }
+}
+
+artifactory {
+    contextUrl = 'http://oss.jfrog.org'
+    publish {
+        repository {
+            repoKey = 'oss-snapshot-local'
+            username = System.getProperty('bintray.user')
+            password = System.getProperty('bintray.key')
+        }
+        defaults {
+            publications('groovyMaven')
+            publishArtifacts = true
+            publishPom = true
+        }
+    }
+    resolve {
+        repoKey = 'jcenter'
+    }
+    clientConfig.info.setBuildNumber(System.getProperty('build.number'))
+}
+
+test {
+    useTestNG()
+    testLogging {
+        events "passed", "skipped", "failed"
+        exceptionFormat "full"
+    }
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        html.enabled false
+    }
+}
+
+check.dependsOn jacocoTestReport
+
+configurations {
+    providedRuntime
+    compile.exclude(group: 'ch.qos.logback')
+    compile.exclude(group: 'org.apache.logging.log4j', module: 'log4j-core')
+}
+
+dependencyManagement {
+    imports { mavenBom("org.springframework.boot:spring-boot-dependencies:${springBootVersion}") }
+}
