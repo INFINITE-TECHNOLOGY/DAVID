@@ -22,7 +22,7 @@
 - SRE/DevOps
   - Deployment friendly - `David` is Spring Boot Application fully packaged and ready to be deployed anywhere
   - DB friendly - JPA support comes aboard (somehow a pain point of `TelegramBots` users)
-  - Cloud-native - `David` provides extendable Push API microservice. `David` is an extrovert! He can start the conversation, not only reply.
+  - Cloud-native - `David` provides extendable Push REST API. `David` is an extrovert! He can start the conversation, not only reply.
   - Logging - another pain point of `TelegramBots` users, though improved in latest versions (SLF4J) support. Yet `David` takes it to another level using [BlackBox](https://github.com/INFINITE-TECHNOLOGY/BLACKBOX) - you *won't even have to write logging code* yourself in plugins - it is added automatically.
 - Development & built-in features\
     `David` already supports essential routines: 
