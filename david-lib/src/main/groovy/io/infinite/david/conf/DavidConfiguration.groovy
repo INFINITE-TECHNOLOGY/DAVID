@@ -25,8 +25,6 @@ class DavidConfiguration {
 
     Integer telegramProxyPort
 
-    Integer telegramAdminId
-
     Map<String, Object> resourceProperties = new HashMap<>()
 
     String pluginsDir
