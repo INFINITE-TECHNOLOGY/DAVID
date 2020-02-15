@@ -58,7 +58,7 @@ class DavidApp implements CommandLineRunner {
             botOptions.setProxyPort(DavidConfiguration.conf.telegramProxyPort)
             botOptions.setProxyType(DefaultBotOptions.ProxyType.HTTP)
         }
-        David david = new David(DavidConfiguration.conf.telegramAdminId, DavidConfiguration.conf.botUsername, DavidConfiguration.conf.botToken, botOptions, DavidConfiguration.conf.pluginsDir, linkRepository)
+        David david = new David(DavidConfiguration.conf.telegramAdminId, DavidConfiguration.conf.botUsername, System.getenv("botToken"), botOptions, DavidConfiguration.conf.pluginsDir, linkRepository)
         telegramBotsApi.registerBot(david)
         silentSender = david.getSilentSender()
     }

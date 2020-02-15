@@ -16,13 +16,13 @@ plugins {
 apply plugin: 'com.jfrog.bintray'
 bootJar {
     baseName = 'david-app'
-    version = '1.0.1-SNAPSHOT'
+    version = '1.0.0'
 }
 
 ext['groovy.version'] = '2.5.4'
 sourceCompatibility = 1.8
 group = "io.i-t"
-version = "1.0.1-SNAPSHOT"
+version = "1.0.0"
 description = "Polyglot Chat Bot"
 
 repositories {

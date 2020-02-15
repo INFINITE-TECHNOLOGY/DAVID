@@ -21,8 +21,6 @@ class DavidConfiguration {
 
     String botUsername
 
-    String botToken
-
     String telegramProxyHost
 
     Integer telegramProxyPort
