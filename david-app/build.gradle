@@ -10,19 +10,19 @@ plugins {
     id "jacoco"
     id "org.springframework.boot" version "2.1.1.RELEASE"
     id "io.spring.dependency-management" version "1.0.6.RELEASE"
-    id "enterprise.groovy.plugin" version "1.0.1"
+    id "enterprise.groovy.plugin" version "1.0.4"
 }
 
 apply plugin: 'com.jfrog.bintray'
 bootJar {
     baseName = 'david-app'
-    version = '1.0.0'
+    version = '1.0.1-SNAPSHOT'
 }
 
 ext['groovy.version'] = '2.5.4'
 sourceCompatibility = 1.8
 group = "io.i-t"
-version = "1.0.0"
+version = "1.0.1-SNAPSHOT"
 description = "Polyglot Chat Bot"
 
 repositories {
@@ -85,7 +85,7 @@ bintray {
         userOrg = "infinite-technology"
         repo = "io.i-t"
         name = "david-app"
-        desc = "Crypto Server"
+        desc = "Polyglot Chat Bot"
         issueTrackerUrl = "https://github.com/INFINITE-TECHNOLOGY/DAVID/issues"
         vcsUrl = "https://github.com/INFINITE-TECHNOLOGY/DAVID.git"
         websiteUrl = "https://i-t.io/David/"
