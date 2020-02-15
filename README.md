@@ -57,3 +57,5 @@
 We have deployed a [David Demo Bot](https://github.com/INFINITE-TECHNOLOGY/DAVID_DEMO_PLUGINS) repository is as a Heroku app (`david-demo`).
 
 Just talk to him in Telegram: [@david_demo_bot](https://web.telegram.org/#/im?p=@david_demo_bot)!
+
+Or fork the [repository](https://github.com/INFINITE-TECHNOLOGY/DAVID_DEMO_PLUGINS) and deploy straight to `Heroku`!
