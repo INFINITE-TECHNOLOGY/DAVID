@@ -1,12 +1,12 @@
 # Infinite Technology ∞ David 🤖
 
-|Attribute\Release type|Latest|
+|Attribute\Release type|Stable|
 |----------------------|------|
-|Version|0.0.0-SNAPSHOT|
+|Version|1.0.0|
 |Branch|[master](https://github.com/INFINITE-TECHNOLOGY/DAVID)|
 |CI Build status|[![Build Status](https://travis-ci.com/INFINITE-TECHNOLOGY/DAVID.svg?branch=master)](https://travis-ci.com/INFINITE-TECHNOLOGY/DAVID)|
 |Test coverage|[![codecov](https://codecov.io/gh/INFINITE-TECHNOLOGY/DAVID/branch/master/graphs/badge.svg)](https://codecov.io/gh/INFINITE-TECHNOLOGY/DAVID/branch/master/graphs)|
-|Library (Maven)|[oss.jfrog.org snapshot](https://oss.jfrog.org/artifactory/webapp/#/artifacts/browse/tree/General/oss-snapshot-local/io/infinite/david/0.0.1-SNAPSHOT)|
+|Library (Maven)|[ ![Download](https://api.bintray.com/packages/infinite-technology/io.i-t/david-app/images/download.svg) ](https://bintray.com/infinite-technology/io.i-t/david-app/_latestVersion)|
 |Heroku|![Heroku](https://heroku-badge.herokuapp.com/?app=david-demo&root=/david/unsecured)|
 
 ## Purpose
