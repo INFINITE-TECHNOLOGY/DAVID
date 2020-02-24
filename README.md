@@ -35,3 +35,30 @@ This saves a lot of time and makes development more visualized.
   - Step-up authentication - e-mail or SMS OTP via [Pigeon](https://github.com/INFINITE-TECHNOLOGY/PIGEON)
   - Rapid requirement implementation using scripted language (Groovy)
   - Push Notifications - `David` provides extendable Push REST API, which help to pro-actively communicate with your bot users
+
+
+## Documentation
+
+* [**David Documentation**](https://github.com/INFINITE-TECHNOLOGY/DAVID/wiki)
+
+## Technology stack
+
+* [TelegramBots](https://github.com/rubenlagus/TelegramBots)
+* Spring Boot
+* Groovy
+* SQL DB (via JPA and Spring Data)
+* REST+HATEOAS (via Spring Data Rest repositories)
+* Bot commands extensible using Plugins (Groovy scripts)
+* [Bobbin](https://github.com/INFINITE-TECHNOLOGY/BOBBIN) - logger
+* [BlackBox](https://github.com/INFINITE-TECHNOLOGY/BLACKBOX) - logging code automation
+* [Ascend](https://github.com/INFINITE-TECHNOLOGY/ASCEND) - step-up authentication & security framework
+* [Pigeon](https://github.com/INFINITE-TECHNOLOGY/PIGEON) - e-mail & SMS OTP
+* [HTTP Client](https://github.com/INFINITE-TECHNOLOGY/HTTP)
+
+## Try `David` now!
+
+We have deployed a [David Demo Bot](https://github.com/INFINITE-TECHNOLOGY/DAVID_DEMO_PLUGINS) repository is as a Heroku app (`david-demo`).
+
+Just talk to him in Telegram: [@david_demo_bot](https://web.telegram.org/#/im?p=@david_demo_bot)!
+
+Or fork the [repository](https://github.com/INFINITE-TECHNOLOGY/DAVID_DEMO_PLUGINS) and deploy straight to `Heroku`!
