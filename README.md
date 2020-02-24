@@ -1,7 +1,7 @@
 # Infinite Technology ∞ David 🤖
 
 > Look on my works, ye Mighty, and despair!
-- Android `David` from "Alien: Covenant", quoting Percy Shelley's "Ozymandias".
+- Percy Shelley's "Ozymandias".
 
 ## Purpose
 
