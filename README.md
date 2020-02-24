@@ -21,24 +21,17 @@ This saves a lot of time and makes development more visualized.
 
 ## Features
 
-`David` provides the following additional features:
+`David` provides the following features:
 
 - Operational
   - Deployment friendly - `David` is Spring Boot Application ready for Cloud deployment (e.g. Heroku)
   - DB friendly - `David` comes with JPA support onboard
-  - Logging - another pain point of `TelegramBots` users, though improved in latest versions (SLF4J) support. Yet `David` takes it to another level using [BlackBox](https://github.com/INFINITE-TECHNOLOGY/BLACKBOX) - you *won't even have to write logging code* yourself in plugins - it is added automatically.
-- Development & built-in features\
-    `David` already supports essential routines: 
+  - Logging - SLF4J + [Bobbin](https://github.com/INFINITE-TECHNOLOGY/BOBBIN) + [BlackBox](https://github.com/INFINITE-TECHNOLOGY/BLACKBOX) - the best existing Logging stack. You *won't even have to write logging code* yourself in plugins - it is added automatically.
+- Development & built-in features
   - User input handling - requesting and waiting for user input, and gracefully handling wrong data or junk
   - No wasted time on code infrastructure - `David` helps you to go straight to developing the features
-  - Breaking your head how to structure your bot code? `David` provides you with the best structure - each command is in separate plugin.
+  - Code structuring - each bot command is in separate plugin.
   - User registration - `David` provides user repository with generic KYC attributes
-- Business
+  - Step-up authentication - e-mail or SMS OTP via [Pigeon](https://github.com/INFINITE-TECHNOLOGY/PIGEON)
   - Rapid requirement implementation using scripted language (Groovy)
   - Push Notifications - `David` provides extendable Push REST API, which help to pro-actively communicate with your bot users
-  - Integration with other [i-t.io](https://i-t.io) products (such as [Pigeon](https://github.com/INFINITE-TECHNOLOGY/PIGEON)) adds value to your product with Email and SMS features
-- UX
-  - `David` is oriented towards less (or ideally NO) typing by user - thus making it easy to interact with using Telegram buttons rather than text commands.
-  - Tired of missed user updates? Can't choose Web Hooks vs Poll? `David` uses **Poll** - the ONLY reliably working mechanism for getting Telegram updates.
-- Security
-  - `David` comes with JWT and OAuth2 support (via [Ascend](https://github.com/INFINITE-TECHNOLOGY/ASCEND) SECaaS platform)
