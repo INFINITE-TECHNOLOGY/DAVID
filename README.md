@@ -1,28 +1,31 @@
 # Infinite Technology ∞ David 🤖
 
-|Attribute\Release type|Stable|
-|----------------------|------|
-|Version|1.0.0|
-|Branch|[master](https://github.com/INFINITE-TECHNOLOGY/DAVID)|
-|CI Build status|[![Build Status](https://travis-ci.com/INFINITE-TECHNOLOGY/DAVID.svg?branch=master)](https://travis-ci.com/INFINITE-TECHNOLOGY/DAVID)|
-|Test coverage|[![codecov](https://codecov.io/gh/INFINITE-TECHNOLOGY/DAVID/branch/master/graphs/badge.svg)](https://codecov.io/gh/INFINITE-TECHNOLOGY/DAVID/branch/master/graphs)|
-|Library (Maven)|[ ![Download](https://api.bintray.com/packages/infinite-technology/io.i-t/david-app/images/download.svg) ](https://bintray.com/infinite-technology/io.i-t/david-app/_latestVersion)|
-|Heroku|![Heroku](https://heroku-badge.herokuapp.com/?app=david-demo&root=/david/unsecured)|
+> Look on my works, ye Mighty, and despair!
+- Android `David` from "Alien: Covenant", quoting Percy Shelley's "Ozymandias".
 
 ## Purpose
 
-`David` - a Polyglot Telegram Chat Bot.
-
-`David` is based on [AbilityBot](https://github.com/rubenlagus/TelegramBots) adding support of Plugins written in Groovy Script.
+`David` is a ready-to-deploy archetype `Telegram` Chat Bot App, extendable with a user-defined plugins.
 
 ## In short
 
-`David` helps to speed-up the development and enrollment of Telegram chat bots by taking care of the following verticals:
+It takes only few clicks to deploy `David` - and you have a functioning (yet empty) chat bot.
 
-- SRE/DevOps
-  - Deployment friendly - `David` is Spring Boot Application fully packaged and ready to be deployed anywhere
-  - DB friendly - JPA support comes aboard (somehow a pain point of `TelegramBots` users)
-  - Cloud-native - `David` provides extendable Push REST API. `David` is an extrovert! He can start the conversation, not only reply.
+Now you can develop your business functionality using `David` Plugins - each one representing a `command`.
+
+The changes you do in the Plugins reflect in the chat immediately - you don't need to re-deploy or restart `David`.
+
+This saves a lot of time and makes development more visualized.
+
+> `David` comes pre-packaged and pre-configured to address typical use cases.
+
+## Features
+
+`David` provides the following additional features:
+
+- Operational
+  - Deployment friendly - `David` is Spring Boot Application ready for Cloud deployment (e.g. Heroku)
+  - DB friendly - `David` comes with JPA support onboard
   - Logging - another pain point of `TelegramBots` users, though improved in latest versions (SLF4J) support. Yet `David` takes it to another level using [BlackBox](https://github.com/INFINITE-TECHNOLOGY/BLACKBOX) - you *won't even have to write logging code* yourself in plugins - it is added automatically.
 - Development & built-in features\
     `David` already supports essential routines: 
@@ -32,30 +35,10 @@
   - User registration - `David` provides user repository with generic KYC attributes
 - Business
   - Rapid requirement implementation using scripted language (Groovy)
+  - Push Notifications - `David` provides extendable Push REST API, which help to pro-actively communicate with your bot users
   - Integration with other [i-t.io](https://i-t.io) products (such as [Pigeon](https://github.com/INFINITE-TECHNOLOGY/PIGEON)) adds value to your product with Email and SMS features
 - UX
   - `David` is oriented towards less (or ideally NO) typing by user - thus making it easy to interact with using Telegram buttons rather than text commands.
   - Tired of missed user updates? Can't choose Web Hooks vs Poll? `David` uses **Poll** - the ONLY reliably working mechanism for getting Telegram updates.
 - Security
   - `David` comes with JWT and OAuth2 support (via [Ascend](https://github.com/INFINITE-TECHNOLOGY/ASCEND) SECaaS platform)
-
-## Documentation
-
-* [**David Documentation**](https://github.com/INFINITE-TECHNOLOGY/DAVID/wiki)
-
-## Technology stack
-
-* [TelegramBots](https://github.com/rubenlagus/TelegramBots)
-* Spring Boot
-* Groovy
-* SQL DB (via JPA and Spring Data)
-* REST+HATEOAS (via Spring Data Rest repositories)
-* Bot commands extensible using Plugins (Groovy scripts)
-
-## Try `David` now!
-
-We have deployed a [David Demo Bot](https://github.com/INFINITE-TECHNOLOGY/DAVID_DEMO_PLUGINS) repository is as a Heroku app (`david-demo`).
-
-Just talk to him in Telegram: [@david_demo_bot](https://web.telegram.org/#/im?p=@david_demo_bot)!
-
-Or fork the [repository](https://github.com/INFINITE-TECHNOLOGY/DAVID_DEMO_PLUGINS) and deploy straight to `Heroku`!
