@@ -32,7 +32,7 @@ ext['springBootVersion'] = '2.1.1.RELEASE'
 
 sourceCompatibility = 1.8
 group = "io.i-t"
-version = "1.0.0"
+version = "1.0.2-SNAPSHOT"
 description = "Polyglot Chat Bot"
 
 
@@ -51,7 +51,6 @@ sourceSets {
 
 dependencies {
     compile 'io.i-t:blackbox:1.0.21'
-    compile 'io.i-t:pigeon-lib:1.0.0'
     compile 'io.i-t:ascend-lib:0.1.6'
     compile group: 'org.telegram', name: 'telegrambots', version: '4.4.0.1'
     compile group: 'org.telegram', name: 'telegrambots-abilities', version: '4.4.0.1'
