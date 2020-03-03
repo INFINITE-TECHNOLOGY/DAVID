@@ -7,6 +7,17 @@
 
 [ ![Download](https://api.bintray.com/packages/infinite-technology/io.i-t/david-app/images/download.svg) ](https://bintray.com/infinite-technology/io.i-t/david-app/_latestVersion)
 
+## Run
+
+```bash
+java \
+ -Dserver.port=$PORT \
+ -Dloader.path="build/libs" \
+ -Dspring.config.location="build/conf/application.properties" \
+ -cp "david-app-1.0.0.jar" \
+ org.springframework.boot.loader.PropertiesLauncher
+```
+
 ## Purpose
 
 `David` is a ready-to-deploy archetype `Telegram` Chat Bot App, extendable with a user-defined plugins.
