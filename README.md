@@ -10,6 +10,8 @@
 ## Run
 
 ```bash
+export botToken="<your Telegram Bot Token>"
+export telegramAdminId="<your Telegram User ID (number)>"
 java \
  -Dserver.port=$PORT \
  -Dloader.path="libs" \
