@@ -3,6 +3,10 @@
 > Look on my works, ye Mighty, and despair!
 - Percy Shelley's "Ozymandias".
 
+## Download
+
+[ ![Download](https://api.bintray.com/packages/infinite-technology/io.i-t/david-app/images/download.svg) ](https://bintray.com/infinite-technology/io.i-t/david-app/_latestVersion)
+
 ## Purpose
 
 `David` is a ready-to-deploy archetype `Telegram` Chat Bot App, extendable with a user-defined plugins.
