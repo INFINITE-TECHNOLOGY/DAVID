@@ -1,43 +1,45 @@
 # Infinite Technology ∞ David 🤖
 
-|Attribute\Release type|Latest|
-|----------------------|------|
-|Version|0.0.0-SNAPSHOT|
-|Branch|[master](https://github.com/INFINITE-TECHNOLOGY/DAVID)|
-|CI Build status|[![Build Status](https://travis-ci.com/INFINITE-TECHNOLOGY/DAVID.svg?branch=master)](https://travis-ci.com/INFINITE-TECHNOLOGY/DAVID)|
-|Test coverage|[![codecov](https://codecov.io/gh/INFINITE-TECHNOLOGY/DAVID/branch/master/graphs/badge.svg)](https://codecov.io/gh/INFINITE-TECHNOLOGY/DAVID/branch/master/graphs)|
-|Library (Maven)|[oss.jfrog.org snapshot](https://oss.jfrog.org/artifactory/webapp/#/artifacts/browse/tree/General/oss-snapshot-local/io/infinite/david/0.0.1-SNAPSHOT)|
-|Heroku|![Heroku](https://heroku-badge.herokuapp.com/?app=david-demo&root=/david/unsecured)|
+> Look on my works, ye Mighty, and despair!
+- Percy Shelley's "Ozymandias".
+
+## Download
+
+[ ![Download](https://api.bintray.com/packages/infinite-technology/io.i-t/david-app/images/download.svg) ](https://bintray.com/infinite-technology/io.i-t/david-app/_latestVersion)
 
 ## Purpose
 
-`David` - a Polyglot Telegram Chat Bot.
-
-`David` is based on [AbilityBot](https://github.com/rubenlagus/TelegramBots) adding support of Plugins written in Groovy Script.
+`David` is a ready-to-deploy archetype `Telegram` Chat Bot App, extendable with a user-defined plugins.
 
 ## In short
 
-`David` helps to speed-up the development and enrollment of Telegram chat bots by taking care of the following verticals:
+It takes only few clicks to deploy `David` - and you have a functioning (yet empty) chat bot.
 
-- SRE/DevOps
-  - Deployment friendly - `David` is Spring Boot Application fully packaged and ready to be deployed anywhere
-  - DB friendly - JPA support comes aboard (somehow a pain point of `TelegramBots` users)
-  - Cloud-native - `David` provides extendable Push REST API. `David` is an extrovert! He can start the conversation, not only reply.
-  - Logging - another pain point of `TelegramBots` users, though improved in latest versions (SLF4J) support. Yet `David` takes it to another level using [BlackBox](https://github.com/INFINITE-TECHNOLOGY/BLACKBOX) - you *won't even have to write logging code* yourself in plugins - it is added automatically.
-- Development & built-in features\
-    `David` already supports essential routines: 
+Now you can develop your business functionality using `David` Plugins - each one representing a `command`.
+
+The changes you do in the Plugins reflect in the chat immediately - you don't need to re-deploy or restart `David`.
+
+This saves a lot of time and makes development more visualized.
+
+> `David` comes pre-packaged and pre-configured to address typical use cases.
+
+## Features
+
+`David` provides the following features:
+
+- Operational
+  - Deployment friendly - `David` is Spring Boot Application ready for Cloud deployment (e.g. Heroku)
+  - DB friendly - `David` comes with JPA support onboard
+  - Logging - SLF4J + [Bobbin](https://github.com/INFINITE-TECHNOLOGY/BOBBIN) + [BlackBox](https://github.com/INFINITE-TECHNOLOGY/BLACKBOX) - the best existing Logging stack. You *won't even have to write logging code* yourself in plugins - it is added automatically.
+- Development & built-in features
   - User input handling - requesting and waiting for user input, and gracefully handling wrong data or junk
   - No wasted time on code infrastructure - `David` helps you to go straight to developing the features
-  - Breaking your head how to structure your bot code? `David` provides you with the best structure - each command is in separate plugin.
+  - Code structuring - each bot command is in separate plugin.
   - User registration - `David` provides user repository with generic KYC attributes
-- Business
+  - Step-up authentication - e-mail or SMS OTP via [Pigeon](https://github.com/INFINITE-TECHNOLOGY/PIGEON)
   - Rapid requirement implementation using scripted language (Groovy)
-  - Integration with other [i-t.io](https://i-t.io) products (such as [Pigeon](https://github.com/INFINITE-TECHNOLOGY/PIGEON)) adds value to your product with Email and SMS features
-- UX
-  - `David` is oriented towards less (or ideally NO) typing by user - thus making it easy to interact with using Telegram buttons rather than text commands.
-  - Tired of missed user updates? Can't choose Web Hooks vs Poll? `David` uses **Poll** - the ONLY reliably working mechanism for getting Telegram updates.
-- Security
-  - `David` comes with JWT and OAuth2 support (via [Ascend](https://github.com/INFINITE-TECHNOLOGY/ASCEND) SECaaS platform)
+  - Push Notifications - `David` provides extendable Push REST API, which help to pro-actively communicate with your bot users
+
 
 ## Documentation
 
@@ -51,6 +53,11 @@
 * SQL DB (via JPA and Spring Data)
 * REST+HATEOAS (via Spring Data Rest repositories)
 * Bot commands extensible using Plugins (Groovy scripts)
+* [Bobbin](https://github.com/INFINITE-TECHNOLOGY/BOBBIN) - logger
+* [BlackBox](https://github.com/INFINITE-TECHNOLOGY/BLACKBOX) - logging code automation
+* [Ascend](https://github.com/INFINITE-TECHNOLOGY/ASCEND) - step-up authentication & security framework
+* [Pigeon](https://github.com/INFINITE-TECHNOLOGY/PIGEON) - e-mail & SMS OTP
+* [HTTP Client](https://github.com/INFINITE-TECHNOLOGY/HTTP)
 
 ## Try `David` now!
 
