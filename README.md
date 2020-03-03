@@ -14,7 +14,7 @@ java \
  -Dserver.port=$PORT \
  -Dloader.path="build/libs" \
  -Dspring.config.location="build/conf/application.properties" \
- -cp "david-app-1.0.0.jar" \
+ -cp "david-app-1.0.1.jar" \
  org.springframework.boot.loader.PropertiesLauncher
 ```
 
