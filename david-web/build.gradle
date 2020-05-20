@@ -1,0 +1,85 @@
+/*
+File
+https://github.com/virtualdogbert/GroovyConfigWriter/blob/master/build.gradle
+has been used as basis for this file.
+ */
+plugins {
+    id "groovy"
+    id "maven-publish"
+    id "idea"
+    id "jacoco"
+    id "org.springframework.boot" version "2.2.6.RELEASE"
+    id "io.spring.dependency-management" version "1.0.6.RELEASE"
+    id "enterprise.groovy.plugin" version "1.0.4"
+}
+
+bootJar {
+    baseName = 'david-web'
+    version = '1.0.0'
+}
+
+ext['groovy.version'] = '2.5.4'
+sourceCompatibility = 1.8
+group = "io.i-t"
+version = "1.0.0"
+description = "Polyglot Chat Bot"
+
+repositories {
+    jcenter()
+    maven {
+        url  "https://dl.bintray.com/infinite-technology/io.i-t"
+    }
+}
+
+sourceSets {
+    main.groovy.srcDirs = ["src/main/groovy"]
+    test.groovy.srcDirs = ["src/test/groovy"]
+}
+
+dependencies {
+    compile project(':david-sdk')
+    compile group: 'org.postgresql', name: 'postgresql', version: '42.2.8'
+}
+
+task sourceJar(type: Jar) {
+    from sourceSets.main.allSource
+    classifier "sources"
+}
+
+ext {
+    theTitle = "Polyglot Chat Bot"
+    titleForDocumentation = archivesBaseName + " " + version
+    packageTitle = group
+    description = "Polyglot Chat Bot"
+}
+
+publishing {
+    publications {
+        groovyMaven(MavenPublication) {
+            from components.java
+            artifact(sourceJar) {
+                classifier "sources"
+            }
+        }
+    }
+}
+
+task jarSrc(type: Jar, dependsOn: classes) {
+    classifier = "sources"
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives(jarSrc)
+}
+
+
+
+configurations {
+    providedRuntime
+    compile.exclude(group: 'ch.qos.logback')
+}
+
+
+task stage(dependsOn: ['build', 'clean'])
+build.mustRunAfter clean

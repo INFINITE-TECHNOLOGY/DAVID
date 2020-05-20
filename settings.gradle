@@ -1,4 +1,4 @@
 rootProject.name = 'david'
 
-include 'david-lib'
-include 'david-app'
+include 'david-sdk'
+include 'david-web'
