@@ -10,13 +10,15 @@
 ## Run
 
 ```bash
+export ascendClientPrivateKey=<your Private key, you can get one from https://ascend-secaas.herokuapp.com/ascend/public/keyPair
+export ascendClientPublicKeyName=<your app name as registered with http://ascend.rest e.g. "MyChatBot">
+export ascendGrantingUrl=https://ascend-secaas.herokuapp.com
+export ascendValidationUrl=https://ascend-secaas.herokuapp.com
+export orbitUrl=https://orbit-secured.herokuapp.com
 export botToken="<your Telegram Bot Token>"
-export telegramAdminId="<your Telegram User ID (number)>"
-java \
- -Dserver.port=$PORT \
- -Dloader.path="libs" \
- -cp "david-app-1.0.1.jar" \
- org.springframework.boot.loader.PropertiesLauncher
+export botUsername="<your Telegram Bot user name, as defined with Bot Father>"
+export telegramAdminId="<your persaonal Telegram User ID (number), to administrate the bot>"
+java -Dserver.port=$PORT $JAVA_OPTS -jar "david-web/build/libs/david-web-1.0.0.jar"
 ```
 
 ## Purpose
