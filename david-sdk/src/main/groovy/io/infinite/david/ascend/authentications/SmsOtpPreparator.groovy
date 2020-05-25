@@ -115,7 +115,7 @@ class SmsOtpPreparator implements AuthenticationPreparator {
     Integer validateOtp(String guid, String userOtp) {
         return senderDefaultHttps.sendHttpMessage(
                 new HttpRequest(
-                        url: "https://orbit-secured.herokuapp.com/orbit/public/validateOtp",
+                        url: "$orbitUrl/orbit/public/validateOtp",
                         method: "POST",
                         headers: [
                                 "Content-Type": "application/json",
