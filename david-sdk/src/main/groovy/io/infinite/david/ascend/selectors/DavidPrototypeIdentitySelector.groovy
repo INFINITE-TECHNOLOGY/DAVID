@@ -18,37 +18,37 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKe
 class DavidPrototypeIdentitySelector implements PrototypeIdentitySelector {
 
     @Override
-    PrototypeIdentity select(Set<PrototypeIdentity> identities) {
-        return selectWithMessage(identities, "Continue as:")
+    PrototypeIdentity select(Set<PrototypeIdentity> prototypeIdentities) {
+        return selectWithMessage(prototypeIdentities, "Please choose preferred identity:")
     }
 
     @Override
-    PrototypeIdentity selectPrerequisite(Set<PrototypeIdentity> identities) {
-        return selectWithMessage(identities, "Continue as:")
+    PrototypeIdentity selectPrerequisite(Set<PrototypeIdentity> prototypeIdentities) {
+        return selectWithMessage(prototypeIdentities, "Please choose preferred identity:")
     }
 
-    PrototypeIdentity selectWithMessage(Set<PrototypeIdentity> identities, String message) {
-        if (identities.size() == 1) {
-            return identities.first()
+    PrototypeIdentity selectWithMessage(Set<PrototypeIdentity> prototypeIdentities, String message) {
+        if (prototypeIdentities.size() == 1) {
+            return prototypeIdentities.first()
         }
         DavidThread davidThread = Thread.currentThread() as DavidThread
         davidThread.messageSender.execute(new SendMessage()
                 .setChatId(davidThread.chatId)
                 .setText(message)
                 .setReplyMarkup(new InlineKeyboardMarkup(
-                        keyboard: identities.collect { prototypeIdentity ->
+                        keyboard: prototypeIdentities.collect { prototypeIdentity ->
                             [new InlineKeyboardButton(prototypeIdentity.name).setCallbackData(prototypeIdentity.name)]
                         }
                 )))
         String chosenIdentityName = davidThread.waitForInput(30)
-        if (!identities.collect { it.name }.contains(chosenIdentityName)) {
+        if (!prototypeIdentities.collect { it.name }.contains(chosenIdentityName)) {
             davidThread.silentSender.send("Sorry, please select one of the above identities.", davidThread.chatId)
             chosenIdentityName = davidThread.waitForInput(30)
         }
-        if (!identities.collect { it.name }.contains(chosenIdentityName)) {
+        if (!prototypeIdentities.collect { it.name }.contains(chosenIdentityName)) {
             throw new DavidException("PrototypeIdentity choosing failure")
         }
-        return identities.find { it.name == chosenIdentityName }
+        return prototypeIdentities.find { it.name == chosenIdentityName }
     }
 
 }
