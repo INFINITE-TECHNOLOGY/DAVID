@@ -58,8 +58,8 @@ class UserPreparator implements AuthenticationPreparator {
         if (httpResponse.status == 404) {
             davidThread.send("We are going to create a new user account.")
             davidThread.sleep(600)
-            davidThread.send("Please review and accept our Terms of Service:")
-            davidThread.send("$orbitUrl/orbit/public/TermsAndConditionsDavid.html")
+            davidThread.send("Please review and accept our Terms and Conditions:")
+            davidThread.send("http://i-t.io/#/TermsAndConditions")
             davidThread.sleep(600)
             davidThread.confirm("Please confirm that you accept the Terms and Conditions:")
             try {

@@ -22,7 +22,7 @@ class LegalPreparator implements AuthenticationPreparator {
         davidThread.sleep(600)
         davidThread.send("Please review and our Privacy Policy:")
         davidThread.sleep(600)
-        davidThread.send("$orbitUrl/orbit/public/PrivacyPolicyDavid.html")
+        davidThread.send("http://i-t.io/#/PrivacyPolicy")
         davidThread.sleep(600)
         davidThread.confirm("Please confirm that you accept the Privacy Policy:")
     }
