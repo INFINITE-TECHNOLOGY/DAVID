@@ -42,10 +42,15 @@ class UserPreparator implements AuthenticationPreparator {
     @Override
     void prepareAuthentication(Map<String, String> publicCredentials, Map<String, String> privateCredentials, Optional<String> prerequisiteJwt) {
         DavidThread davidThread = Thread.currentThread() as DavidThread
-        String phone = publicCredentials.get("phone")
+        String userId
+        if (publicCredentials.containsKey("phone")) {
+            userId = "phone/" + publicCredentials.get("phone")
+        } else {
+            userId = "email/" + publicCredentials.get("email")
+        }
         HttpResponse httpResponse = senderDefaultHttps.sendHttpMessage(
                 new HttpRequest(
-                        url: "$orbitUrl/orbit/secured/user/$phone",
+                        url: "$orbitUrl/orbit/secured/user/$userId",
                         method: "GET",
                         headers: [
                                 "Content-Type" : "application/json",
@@ -65,7 +70,7 @@ class UserPreparator implements AuthenticationPreparator {
             try {
                 userGuid = jsonSlurper.parseText(senderDefaultHttps.expectStatus(
                         new HttpRequest(
-                                url: "$orbitUrl/orbit/secured/user/$phone",
+                                url: "$orbitUrl/orbit/secured/user/$userId",
                                 method: "POST",
                                 headers: [
                                         "Content-Type" : "application/json",
