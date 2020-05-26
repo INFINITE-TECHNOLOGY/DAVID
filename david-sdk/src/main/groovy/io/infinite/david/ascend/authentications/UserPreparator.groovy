@@ -59,7 +59,7 @@ class UserPreparator implements AuthenticationPreparator {
             davidThread.send("We are going to create a new user account.")
             davidThread.sleep(600)
             davidThread.send("Please review and accept our Terms and Conditions:")
-            davidThread.send("http://i-t.io/#/TermsAndConditions")
+            davidThread.send("http://i-t.io/website/#/TermsAndConditions")
             davidThread.sleep(600)
             davidThread.confirm("Please confirm that you accept the Terms and Conditions:")
             try {
