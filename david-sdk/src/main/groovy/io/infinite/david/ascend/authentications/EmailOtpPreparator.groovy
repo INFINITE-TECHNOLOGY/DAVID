@@ -15,8 +15,6 @@ import io.infinite.http.SenderDefaultHttps
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Service
-import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardButton
-import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow
 
 @BlackBox(level = CarburetorLevel.METHOD)
 @Service
@@ -45,26 +43,14 @@ class EmailOtpPreparator implements AuthenticationPreparator {
         DavidThread davidThread = Thread.currentThread() as DavidThread
         davidThread.silentSender.send("An OTP Authentication needs to be performed to proceed further.", davidThread.chatId)
         Thread.sleep(1000)
-        davidThread.oneTimeKeyboard("What phone should I use?", [
-                [new KeyboardButton("My current phone").setRequestContact(true)] as KeyboardRow,
-                [new KeyboardButton("Use another phone")] as KeyboardRow,
-                [new KeyboardButton("Cancel")] as KeyboardRow
-        ])
+        davidThread.silentSender.send("Please enter your email:", davidThread.chatId)
         String email = davidThread.waitForInput(30)
-        if (email == "Cancel") {
-            throw new DavidUserException("Authentication cancelled as per your request.")
-        }
-        if (email == "Use another phone") {
-            davidThread.silentSender.send("Please enter your phone:", davidThread.chatId)
-            email = davidThread.waitForInput(30)
-        }
-        email = email.replace("+", "").replace("(", "").replace(")", "").replace(" ", "")
         if (!email.matches(emailRegex)) {
-            davidThread.silentSender.send("Sorry, it seems like a wrong phone, please try again:", davidThread.chatId)
+            davidThread.silentSender.send("Sorry, it seems like a wrong email, please try again:", davidThread.chatId)
             email = davidThread.waitForInput(30)
         }
         if (!email.matches(emailRegex)) {
-            throw new DavidUserException("Sorry, it seems like a wrong phone.")
+            throw new DavidUserException("Sorry, it seems like a wrong email.")
         }
         def managedOtpHandle
         try {
@@ -92,9 +78,9 @@ class EmailOtpPreparator implements AuthenticationPreparator {
             ).body)
         } catch (HttpException httpException) {
             log.warn("OTP sending exception", httpException)
-            throw new DavidUserException("Sorry, but there was a problem sending OTP to this phone.")
+            throw new DavidUserException("Sorry, but there was a problem sending OTP to this email.")
         }
-        davidThread.silentSender.send("I have sent an OTP to your phone *${email[-4..-1]}", davidThread.chatId)
+        davidThread.silentSender.send("I have sent an OTP to your email *${email[-4..-1]}", davidThread.chatId)
         davidThread.silentSender.send("Please enter it here:", davidThread.chatId)
         String userOtp = davidThread.waitForInput(120)
         Integer status = validateOtp(managedOtpHandle.guid as String, userOtp)
@@ -107,7 +93,7 @@ class EmailOtpPreparator implements AuthenticationPreparator {
             }
         }
         publicCredentials.put("otpGuid", managedOtpHandle.guid as String)
-        publicCredentials.put("phone", email)
+        publicCredentials.put("email", email)
         privateCredentials.put("otp", userOtp)
     }
 
