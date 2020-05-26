@@ -80,7 +80,7 @@ class EmailOtpPreparator implements AuthenticationPreparator {
             log.warn("OTP sending exception", httpException)
             throw new DavidUserException("Sorry, but there was a problem sending OTP to this email.")
         }
-        davidThread.silentSender.send("I have sent an OTP to your email *${email[-4..-1]}", davidThread.chatId)
+        davidThread.silentSender.send("I have sent an OTP to your email *${email.split("@").first()[-4..-1]}", davidThread.chatId)
         davidThread.silentSender.send("Please enter it here:", davidThread.chatId)
         String userOtp = davidThread.waitForInput(120)
         Integer status = validateOtp(managedOtpHandle.guid as String, userOtp)
