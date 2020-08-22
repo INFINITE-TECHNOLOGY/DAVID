@@ -29,6 +29,9 @@ repositories {
     maven {
         url  "https://dl.bintray.com/infinite-technology/io.i-t"
     }
+    flatDir {
+        dirs 'libs'
+    }
 }
 
 sourceSets {
