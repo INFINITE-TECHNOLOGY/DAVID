@@ -37,8 +37,7 @@ sourceSets {
 }
 
 dependencies {
-    compile project(':david-sdk')
-    compile group: 'org.postgresql', name: 'postgresql', version: '42.2.8'
+    compile 'com.microsoft.bot:bot-integration-spring:4.6.0-preview7'
 }
 
 task sourceJar(type: Jar) {
