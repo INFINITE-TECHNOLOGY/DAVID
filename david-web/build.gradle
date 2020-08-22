@@ -29,9 +29,6 @@ repositories {
     maven {
         url  "https://dl.bintray.com/infinite-technology/io.i-t"
     }
-    flatDir {
-        dirs 'libs'
-    }
 }
 
 sourceSets {
@@ -40,7 +37,7 @@ sourceSets {
 }
 
 dependencies {
-    compile 'com.microsoft.bot:bot-integration-spring:4.6.0-preview7'
+    compile fileTree(dir: 'libs', include: '*.jar')
 }
 
 task sourceJar(type: Jar) {
